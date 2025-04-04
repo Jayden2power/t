@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     $stmt->execute();
-    header("Location: ticket.php");
+    header("Location: ticket.html");
     exit();
     ob_end_flush();
 
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registratiepagina</title>
-    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="css/register.css">
 </head>
 <body>
     <div class="registration-container">
@@ -71,6 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="email" id="email" name="email" class="input-field" placeholder="E-mailadres" required><br>
             <input type="password" id="password" name="password" class="input-field" placeholder="Wachtwoord" required><br>
             <button type="submit" class="submit-button">Registreren</button>
+            <p>Al een account <a href="login.php">Hier inloggen</a></p>
         </form>
         <?php if (isset($error)) echo "<p class='error-message'>$error</p>"; ?>
     </div>
