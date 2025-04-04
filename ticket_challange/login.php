@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Als de gebruiker al is ingelogd, doorsturen naar ticket.php
+
 if (isset($_SESSION['user_id'])) {
     echo "<script>
         alert('Je bent al ingelogd!');
-        window.location.href = 'ticket.php';
+        window.location.href ='ticket.html';
     </script>";
     exit();
 }
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
             if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
-                header("Location: ticket.php");
+                header("Location: ticket.html");
                 exit();
             } else {
                 $error = "Ongeldig wachtwoord of gebruiker niet gevonden.";
@@ -58,71 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            background-image: url('images/spikspan.jpg');
-            background-size: cover;
-            background-attachment: fixed;
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        .login-container {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            width: 100%;
-            max-width: 400px;
-        }
-
-        h1 {
-            text-align: center;
-            color: #333;
-        }
-
-        .input-field {
-            width: 95%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            font-size: 16px;
-        }
-
-        .input-field:focus {
-            border-color: rgb(255, 0, 0);
-            outline: none;
-        }
-
-        .login-button {
-            width: 100%;
-            padding: 10px;
-            background-color: rgb(255, 145, 0);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .login-button:hover {
-            background-color: rgb(179, 131, 0);
-        }
-
-        .error-message {
-            color: red;
-            text-align: center;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <div class="login-container">
@@ -131,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             <input type="text" name="email" class="input-field" placeholder="E-mailadres" required>
             <input type="password" name="password" class="input-field" placeholder="Wachtwoord" required>
             <button type="submit" name="login" class="login-button">Inloggen</button>
+            <p>Nog geen account? <a href="register.php">Registreer hier</a></p>
         </form>
         <?php if (isset($error)) echo "<p class='error-message'>$error</p>"; ?>
     </div>

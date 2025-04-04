@@ -3,11 +3,11 @@
     function generateQR() {
 
         const randomData = 
-        Math.random().toString(36).substring(2,24) +
-        Math.random().toString(36).substring(2,24) +
-        Math.random().toString(36).substring(2,24) +
-        Math.random().toString(36).substring(2,24) +
-        Math.random().toString(36).substring(2,24);
+        Math.random().toString(36).substring(0,4);
+        // Math.random().toString(36).substring(2,24) +
+        // Math.random().toString(36).substring(2,24) +
+        // Math.random().toString(36).substring(2,24) +
+        // Math.random().toString(36).substring(2,24);
         // //Maakt een random data entry:
         // //math.random = random floating generator between 0 and 1 (example: 0.1234567890123456)
         // //tostring converts the number to a base-36, using digits 0-9 and letters a-z
@@ -31,10 +31,33 @@
         
         if (error) console.error(error); //Foutafhandeling en logt eventuele fouten naar de console
         qrContainer.appendChild(canvas); //Bij succes, voeg het canvas toe aan onze container
+    
+    
+    console.log(randomData);
     }); //Canvas is een <canvas> DOM-element met de visuele QR-code
 
 
     }
+
+
+// After successful QR code scan
+function onQRCodeScanned(scannedText) {
+    // Send data to server
+    fetch('save_scan.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `qr_data=${encodeURIComponent(scannedText)}`
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Scan saved:', data);
+    })
+    .catch(error => {
+        console.error('Error saving scan:', error);
+    });
+}
 
 
     //Deepseek adventure: 
