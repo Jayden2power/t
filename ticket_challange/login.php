@@ -1,11 +1,11 @@
 <?php
 session_start();
 
-// Als de gebruiker al is ingelogd, doorsturen naar ticket.php
+
 if (isset($_SESSION['user_id'])) {
     echo "<script>
         alert('Je bent al ingelogd!');
-        window.location.href = 'ticket.php';
+        window.location.href ='ticket.html';
     </script>";
     exit();
 }
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
             if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
-                header("Location: ticket.php");
+                header("Location: ticket.html");
                 exit();
             } else {
                 $error = "Ongeldig wachtwoord of gebruiker niet gevonden.";
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="css/login.css">
 </head>
 <body>
     <div class="login-container">
@@ -67,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
             <input type="text" name="email" class="input-field" placeholder="E-mailadres" required>
             <input type="password" name="password" class="input-field" placeholder="Wachtwoord" required>
             <button type="submit" name="login" class="login-button">Inloggen</button>
+            <p>Nog geen account? <a href="register.php">Registreer hier</a></p>
         </form>
         <?php if (isset($error)) echo "<p class='error-message'>$error</p>"; ?>
     </div>
