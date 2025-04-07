@@ -1,0 +1,4 @@
+Array
+(
+    [qr_data] => 0.e6
+)
