@@ -3,7 +3,7 @@
     function generateQR() {
 
         const randomData = 
-        Math.random().toString(36).substring(2,24) +
+        Math.random().toString(36).substring(0,4) +
         Math.random().toString(36).substring(2,24) +
         Math.random().toString(36).substring(2,24) +
         Math.random().toString(36).substring(2,24) +
@@ -31,10 +31,37 @@
         
         if (error) console.error(error); //Foutafhandeling en logt eventuele fouten naar de console
         qrContainer.appendChild(canvas); //Bij succes, voeg het canvas toe aan onze container
+
+        saveQRData(randomData);
+    
+    
+    console.log(randomData);
     }); //Canvas is een <canvas> DOM-element met de visuele QR-code
+}
 
 
-    }
+// Function to save QR data to database
+function saveQRData(qrData) {
+    fetch('/qr_code/php/save_qr.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `qr_data=${encodeURIComponent(qrData)}`
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text();
+    })
+    .then(data => {
+        console.log('Success:', data);
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
 
 
     //Deepseek adventure: 
