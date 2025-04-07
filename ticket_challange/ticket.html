@@ -10,9 +10,20 @@
 </head>
 <body>
     <div class="header">Spik & Span Tickets
-        <div class="knop" onclick="toggleMenu()">
-           
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+
+   
+        <div class="menu" id="sidebar">
+            <a href="login.php">Inloggen</a>
+            <a href="logout.php">Uitloggen</a>
+            <a href="">Bestel nu je tickets</a>
+            <a href="#">Contact</a>
         </div>
+
+    
+        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+           
+    </div>
     </div>
     <div class="banner">
         <p>De kampioenen van de nacht!</p>
@@ -21,15 +32,14 @@
     
     <div class="container">
         <div class="featured-ticket">
-            <div class="featured-text">Geniet van Spik & Span!</div>
+            <div class="featured-text"></div>
                 <div class="buttons">
-                    <a href="login.php">Inloggen</a>
-                    <a href="logout.php">Uitloggen</a>
-                    <a href="">Bestel nu je tickets</a>
+              
                 </div>
         </div>
     </div>
-   
+   <script src="js/ticket.js"></script>
+
 
 </body>
 </html>
