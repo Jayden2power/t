@@ -21,7 +21,7 @@ $last_name = isset($_POST["last_name"]) ? $_POST["last_name"] : '';
 $date_of_birth = isset($_POST["date_of_birth"]) ? $_POST["date_of_birth"] : '';
 $email = isset($_POST["email"]) ? $_POST["email"] : '';
 $phone_number = isset($_POST["phone_number"]) ? $_POST["phone_number"] : '';
-$adres = isset($_POST["adres"]) ? $_POST["adres"] : '';
+$address = isset($_POST["address"]) ? $_POST["address"] : '';
 $bsn = isset($_POST["bsn"]) ? $_POST["bsn"] : '';
 
 
@@ -50,7 +50,7 @@ if ($conn->connect_error) {
 $qr_data = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 62);
 
 // Prepare statement (excluding created_at - let DB handle it)
-$statement = $conn->prepare("INSERT INTO qr_codes(qr_data, first_name, last_name, date_of_birth, email, phone_number, adres, bsn) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+$statement = $conn->prepare("INSERT INTO qr_codes(qr_data, first_name, last_name, date_of_birth, email, phone_number, address, bsn) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 // Bind parameters - note phone_number and bsn are integers (i)
 $statement->bind_param("sssssiis", 
@@ -60,7 +60,7 @@ $statement->bind_param("sssssiis",
     $date_of_birth,    // s (string)
     $email,            // s (string)
     $phone_number,     // i (integer)
-    $adres,            // s (string)
+    $address,            // s (string)
     $bsn               // i (integer)
 );
 
@@ -70,8 +70,6 @@ if ($statement->execute()) {
 } else {
     echo "Error: " . $statement->error;
 }
-    // Query uitvoeren
-    $statement->execute(); 
     // Afsluiten
     $statement->close();
     $conn->close();
@@ -85,3 +83,8 @@ if ($statement->execute()) {
 
 
 
+
+
+
+<!--
+De informatie uit een php gecreeërde session ID halen, en dit omzetten in een account ID wat vervolgens in de database gestored word  -->
