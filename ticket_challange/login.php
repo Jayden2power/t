@@ -13,7 +13,7 @@ if (isset($_SESSION['user_id'])) {
 // Databasegegevens
 $servername = "localhost";
 $username = "root";
-$password = "Lijamar2312@";
+$password = "password";
 $dbname = "db_ticket";
 
 // Verbind met database

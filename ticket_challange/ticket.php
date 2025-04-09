@@ -17,7 +17,7 @@ session_start();
     }
     ?>
         <button class="menu-btn" onclick="toggleMenu()">☰</button>
-   
+        
         <div class="menu" id="sidebar">
             <?php if (isset($_SESSION['email'])): ?>
                 <a href="logout.php">Uitloggen</a>
@@ -43,10 +43,10 @@ session_start();
             </div>
             <div class="ticket-details">
                 <ul>
-                    <li>✔ Toegang tot alle zones</li>
-                    <li>✔ Toegang tot dansvloer</li>
-                    <li>✔ basis faciliteiten</li>
-                    <li>✔ Live optredens</li>
+                    <li> Toegang tot alle zones</li>
+                    <li> Toegang tot dansvloer</li>
+                    <li> Basis faciliteiten</li>
+                    <li> Live optredens</li>
                 </ul>
             </div>
             <button class="order-btn">Bestel nu</button>
@@ -63,14 +63,14 @@ session_start();
         <div class="ticket-box right-ticket">
             <div class="ticket-header">
                 <h2>Kinderen(16 of jonger)</h2>
-                <div class="price">€19,99</div>
+                <div class="price">€49,99</div>
             </div>
             <div class="ticket-details">
                 <ul>
-                    <li>✔ Toegang tot hoofdzone</li>
-                    <li>✔ Toegang tot dansvloer</li>
-                    <li>✔ Basis faciliteiten</li>
-                    <li>✔ Live optredens</li>
+                    <li> Toegang tot hoofdzone</li>
+                    <li> Toegang tot dansvloer</li>
+                    <li> Basis faciliteiten</li>
+                    <li> Live optredens</li>
                 </ul>
             </div>
             <button class="order-btn">
