@@ -1,0 +1,37 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticket Template</title>
+    <link rel="stylesheet" href="css/ticket.css">
+</head>
+<body>
+    <div style="width: 100vw; height: 100vh; overflow-x: hidden; display: flex; justify-content: center;">
+        <div id="scaler" style="transform-origin: center top; position: relative; overflow-x: hidden;">
+            <div id="container" style="border: 5px solid rgb(238, 51, 0); border-radius: 25px; background: linear-gradient(0deg, rgb(255, 68, 0) 0%, rgba(255,149,0,1) 100%); background-color: rgb(255, 132, 0); padding: 10px; display: inline-block; transform-origin: top left; position: relative;">
+                <div style="display: flex; flex-direction: column;">
+                    <div style="border: 5px solid rgb(238, 51, 0); border-radius: 15px; background-color: white; margin-bottom: 10px; width: 250px; height: 250px; overflow: hidden;">
+                        <div id="qrcode" style="transform: scale(1.1); transform-origin: center;"></div>
+                    </div>
+                    <div style="border: 5px solid rgb(238, 51, 0); border-radius: 15px; background-color: white; width: 250px; display: flex; flex-direction: column;">
+                        <div id="name" class="ticketEntry">NAAM: </div>
+                        <div id="date_of_birth" class="ticketEntry">GEBOORTEDATUM: </div>
+                        <div id="email" class="ticketEntry">E-MAIL: </div>
+                        <div id="telnum" class="ticketEntry">TEL #: </div>
+                        <div id="address" class="ticketEntry">ADRES: </div>
+                        <div id="bsn" class="ticketEntry">BSN: </div>
+                        <div id="date_of_issue" class="ticketEntry">UITGIFTEDATUM: </div>
+                    </div>
+                </div>
+            </div>
+            <button class="pdfbutton">SAVE & SEND AS PDF</button>
+        </div>
+    </div>
+
+    <script src="js/fill_ticket_info.js"></script>
+    <script src="js/scale_ticket.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
+    <script src="js/qr_gen.js"></script>
+
+</body>
+</html>

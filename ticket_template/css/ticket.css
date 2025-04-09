@@ -1,6 +1,37 @@
 body {
+    background-color: black;
     padding: 0;
     margin: 0;
     font-family: monospace;
+    font-size: 14px;
+}
+
+.ticketEntry {
+    margin: 5px; 
+    border: 5px solid rgb(238, 51, 0); 
+    border-radius: 6px; 
+    flex-grow: 1; 
+    line-height: 110%;
+    white-space: pre;
+    padding-left: 3px;
+    text-wrap: wrap;
+}
+
+.pdfbutton {
+    border: 5px solid rgb(238, 51, 0); 
+    border-radius: 25px; 
+    margin-top: 15px; 
+    padding: 15px; 
+    width: 290px; 
+    height: 75px; 
+    background-color: rgb(255, 30, 0);
+    display: block; 
+    color: white; 
     font-size: 20px;
+    cursor: pointer;
+}
+
+.pdfbutton:hover {
+    background-color: rgb(255, 55, 0);
+    border-color:rgb(255, 55, 0);;
 }
