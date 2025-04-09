@@ -142,7 +142,7 @@ async function showResult(data, isSuccess) {
             if (response.exists) {
                 // Green screen for success
                 scanButton.style.backgroundColor = 'rgb(75, 175, 78)';
-                scanButton.textContent = `TAP TO SCAN AGAIN\n\nTICKET VERIFIED UNDER\nEMAIL: ${response.email}\nACCOUNT ID: ${response.account_id}\nTICKET ID: ${response.id}`;
+                scanButton.textContent = `TAP TO SCAN AGAIN\n\n\nTICKET VERIFIED UNDER\n\nEMAIL: ${response.email}\nACCOUNT ID: ${response.account_id}\nTICKET ID: ${response.id}`;
             } else {
                 // QR not found in database
                 scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
