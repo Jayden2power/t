@@ -80,6 +80,23 @@ async function startCamera() {
     }
 }
 
+// Function to verify QR code with PHP backend
+async function verifyQRCode(qrData) {
+    const response = await fetch('./php/verify_ticket.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ qr_code: qrData })
+    });
+    
+    if (!response.ok) {
+        throw new Error('Network response was not ok');
+    }
+    
+    return await response.json();
+}
+
 // Function to scan for QR codes
 function scanQRCode() {
     // First we make sure the device is actually ready for scanning and has the camera on. If not, this passes, saving us some resources and unnecessary frame analysis.
@@ -116,19 +133,33 @@ function scanQRCode() {
 }
 
 // Function to display results. Mostly just sets colors and text. Also displays either the data or whatever else was provided.
-function showResult(data, isSuccess) {
+async function showResult(data, isSuccess) {
     if (isSuccess) {
-        // Green screen for success
-        scanButton.style.backgroundColor = 'rgb(75, 175, 78)';
-        scanButton.textContent = `TAP TO SCAN AGAIN\n\n${data}`;
+        try {
+            // Send the QR data to the PHP backend for verification
+            const response = await verifyQRCode(data);
+            
+            if (response.exists) {
+                // Green screen for success
+                scanButton.style.backgroundColor = 'rgb(75, 175, 78)';
+                scanButton.textContent = `TAP TO SCAN AGAIN\n\nTICKET VERIFIED UNDER\nEMAIL: ${response.email}\nACCOUNT ID: ${response.account_id}\nTICKET ID: ${response.id}`;
+            } else {
+                // QR not found in database
+                scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
+                scanButton.textContent = 'TAP TO SCAN AGAIN\n\nTICKET NOT FOUND!';
+            }
+        } catch (error) {
+            console.error('Error verifying QR code:', error);
+            scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
+            scanButton.textContent = 'TAP TO SCAN AGAIN\n\nCOULD NOT VERIFY';
+        }
     } else {
         // Error state
-        scanButton.style.backgroundColor = 'rgb(255, 53, 53)';
-        scanButton.textContent = `TAP TO SCAN AGAIN\n\n${data}`;
+        scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
+        scanButton.textContent = `TAP TO SCAN AGAIN\n\nQR: ${data}`;
     }
 }
-
-// Event listener for the scan button
+// Event listener for the scan button (now acts as toggle)
 scanButton.addEventListener('click', () => {
     if (isScanning) {
         stopCamera();
