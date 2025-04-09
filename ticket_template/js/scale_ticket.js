@@ -19,6 +19,8 @@ function adjustScale() {
     scaler.style.transform = `scale(${scale})`;
 }
 
-// Run on load and resize
-window.addEventListener('load', adjustScale);
 window.addEventListener('resize', adjustScale);
+window.addEventListener('load', () => {
+    // Add a small delay to ensure everything is ready
+    setTimeout(adjustScale, 100);
+});
