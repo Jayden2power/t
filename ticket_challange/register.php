@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
     $stmt->execute();
-    header("Location: ticket.html");
+    header("Location: ticket.php");
     exit();
     ob_end_flush();
 

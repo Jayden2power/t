@@ -5,7 +5,7 @@ session_start();
 if (isset($_SESSION['user_id'])) {
     echo "<script>
         alert('Je bent al ingelogd!');
-        window.location.href ='ticket.html';
+        window.location.href ='ticket.php';
     </script>";
     exit();
 }
@@ -40,7 +40,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
             if ($user && password_verify($password, $user['password'])) {
                 $_SESSION['user_id'] = $user['id'];
-                header("Location: ticket.html");
+                $_SESSION['email'] = $email;
+                header("Location: ticket.php");
                 exit();
             } else {
                 $error = "Ongeldig wachtwoord of gebruiker niet gevonden.";
