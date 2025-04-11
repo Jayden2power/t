@@ -25,7 +25,18 @@ session_start();
                 <a href="login.php" class="menu-login">Inloggen</a>
             <?php endif; ?>
             <a href="#" class="menu-contact">Contact</a>
+<<<<<<< Updated upstream
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="nl">Nederlands</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="li">Limburgs</option>
+                </select>
+            </div>
+=======
             <a href="#" class="menu-translate">English</a> 
+>>>>>>> Stashed changes
         </div>
     
         <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -62,7 +73,11 @@ session_start();
         <div class="ticket-box right-ticket">
             <div class="ticket-header">
                 <h2 class="ticket-title">Kinderen(16 of jonger)</h2>
+<<<<<<< Updated upstream
+                <div class="price">€49,99</div>
+=======
                 <div class="price">€19,99</div>
+>>>>>>> Stashed changes
             </div>
             <div class="ticket-details">
                 <ul>
@@ -72,11 +87,18 @@ session_start();
                     <li>✔ Live optredens</li>
                 </ul>
             </div>
+<<<<<<< Updated upstream
             <a href="../index.php" class="order-btn">Bestel nu</a>
+=======
+            <button class="order-btn">Bestel nu</button>
+>>>>>>> Stashed changes
         </div>
     </div>
 
     <script src="js/ticket.js"></script>
+<<<<<<< Updated upstream
+    <script src="js/vertalen.js"></script>
+=======
     <script>
         // Globale variabele voor vertalingen
         let translations = {};
@@ -111,8 +133,8 @@ session_start();
                 
                 switch(currentLang) {
                     case 'nl': nextLang = 'en'; break;
-                    case 'en': nextLang = 'fr'; break;
-                    case 'fr': nextLang = 'nl'; break;
+                    case 'en': nextLang = 'li'; break;
+                    case 'li': nextLang = 'nl'; break;
                     default: nextLang = 'en';
                 }
                 
@@ -183,5 +205,6 @@ session_start();
             }
         }
     </script>
+>>>>>>> Stashed changes
 </body>
 </html>
