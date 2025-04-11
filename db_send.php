@@ -60,7 +60,7 @@ $statement->bind_param("sssssiis",
     $date_of_birth,    // s (string)
     $email,            // s (string)
     $phone_number,     // i (integer)
-    $address,            // s (string)
+    $address,          // s (string)
     $bsn               // i (integer)
 );
 
