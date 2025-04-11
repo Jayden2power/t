@@ -21,19 +21,25 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Prepare and execute query
-    $stmt = $pdo->prepare("SELECT id, email, account_id FROM tickettest WHERE qr = :qr_code");
-    $stmt->bindParam(':qr_code', $qrCode);
-    $stmt->execute();
+    $stmtticket = $pdo->prepare("SELECT account_id, id FROM tickettest WHERE qr = :qr_code");
+    $stmtticket->bindParam(':qr_code', $qrCode);
+    $stmtticket->execute();
 
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-
-    if ($result) {
+    $resultticket = $stmtticket->fetch(PDO::FETCH_ASSOC);
+    
+    $stmtlogin = $pdo->prepare("SELECT email, id FROM ticketlogin WHERE id = :account_id");
+    $stmtlogin->bindParam(':account_id', $resultticket['account_id']);
+    $stmtlogin->execute();
+    
+    $resultlogin = $stmtlogin->fetch(PDO::FETCH_ASSOC);
+    
+    if ($resultticket) {
         // QR code found in database
         echo json_encode([
             'exists' => true,
-            'id' => $result['id'],
-            'email' => $result['email'],
-            'account_id' => $result['account_id']
+            'email' => $resultlogin['email'],
+            'account_id' => $resultlogin['id'],
+            'id' => $resultticket['id']
         ]);
     } else {
         // QR code not found
