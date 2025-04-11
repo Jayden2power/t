@@ -8,13 +8,6 @@
 <body>
 <?php
 
-session_start();
-
-if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = session_id(); // Or another unique ID (e.g., from login).
-}
-$account_id = $_SESSION['user_id']; // Now safe to use.
-
 //Toont alle errors indien aanwezig
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
@@ -57,10 +50,10 @@ if ($conn->connect_error) {
 $qr_data = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 62);
 
 // Prepare statement (excluding created_at - let DB handle it)
-$statement = $conn->prepare("INSERT INTO qr_codes(qr_data, first_name, last_name, date_of_birth, email, phone_number, address, bsn, account_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$statement = $conn->prepare("INSERT INTO qr_codes(qr_data, first_name, last_name, date_of_birth, email, phone_number, address, bsn) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
 
 // Bind parameters - note phone_number and bsn are integers (i)
-$statement->bind_param("sssssiisi", 
+$statement->bind_param("sssssiis", 
     $qr_data,          // s (string)
     $first_name,       // s (string)
     $last_name,        // s (string)
@@ -68,9 +61,7 @@ $statement->bind_param("sssssiisi",
     $email,            // s (string)
     $phone_number,     // i (integer)
     $address,          // s (string)
-    $bsn,              // i (integer)
-    $_SESSION['user_id'] // i (integer)
-    
+    $bsn               // i (integer)
 );
 
 // Execute

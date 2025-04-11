@@ -8,6 +8,7 @@
     <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.1/build/qrcode.min.js"></script>
     <!-- Include your JavaScript file -->
     <script src="./qr_code/js/script.js" defer></script>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
@@ -17,7 +18,7 @@ ini_set('display_errors', 1);
 ?>
 
 
-    <div style="margin-top: 15px"; id="gastenboek">
+    <div style="margin-top: 15px"; id="ticket-site-form">
         <form action="db_send.php" method="post">
             <label for="first_name" style="color:black">Voornaam:</label><br>
             <input type="text" id="first_name" name="first_name"><br>

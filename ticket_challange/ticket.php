@@ -57,7 +57,7 @@ session_start();
                     <li>✔ Live optredens</li>
                 </ul>
             </div>
-            <button class="order-btn">Bestel nu</button>
+            <a href="../index.php" class="order-btn">Bestel nu</a>
         </div>
 
         <div class="featured-image-container">
@@ -79,7 +79,7 @@ session_start();
                     <li>✔ Live optredens</li>
                 </ul>
             </div>
-            <a href="#" class="order-btn">Bestel nu</a>
+            <a href="../index.php" class="order-btn">Bestel nu</a>
         </div>
     </div>
 
