@@ -1,4 +1,5 @@
 {
+<<<<<<< Updated upstream
   "translations": {
     "nl": {
       "site_title": "Spik & Span Tickets",
@@ -154,3 +155,122 @@
     }
   }
 }
+=======
+    "translations": {
+      "nl": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Ingelogd als",
+        "menu": {
+          "logout": "Uitloggen",
+          "login": "Inloggen",
+          "contact": "Contact",
+          "translate": "English"
+        },
+        "banner": {
+          "text": "De kampioenen van de nacht!",
+          "heading": "Bestel nu jouw tickets!"
+        },
+        "tickets": {
+          "adults": {
+            "title": "Volwassenen",
+            "price": "€29,99",
+            "features": [
+              "✔ Toegang tot alle zones",
+              "✔ Toegang tot dansvloer",
+              "✔ basis faciliteiten",
+              "✔ Live optredens"
+            ],
+            "button": "Bestel nu"
+          },
+          "children": {
+            "title": "Kinderen(16 of jonger)",
+            "price": "€19,99",
+            "features": [
+              "✔ Toegang tot hoofdzone",
+              "✔ Toegang tot dansvloer",
+              "✔ Basis faciliteiten",
+              "✔ Live optredens"
+            ],
+            "button": "Bestel nu"
+          }
+        }
+      },
+      "en": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Logged in as",
+        "menu": {
+          "logout": "Logout",
+          "login": "Login",
+          "contact": "Contact",
+          "translate": "Limburgs"
+        },
+        "banner": {
+          "text": "The champions of the night!",
+          "heading": "Order your tickets now!"
+        },
+        "tickets": {
+          "adults": {
+            "title": "Adults",
+            "price": "€29,99",
+            "features": [
+              "✔ Access to all zones",
+              "✔ Access to dance floor",
+              "✔ Basic facilities",
+              "✔ Live performances"
+            ],
+            "button": "Order now"
+          },
+          "children": {
+            "title": "Children (16 or younger)",
+            "price": "€19,99",
+            "features": [
+              "✔ Access to main zone",
+              "✔ Access to dance floor",
+              "✔ Basic facilities",
+              "✔ Live performances"
+            ],
+            "button": "Order now"
+          }
+        }
+      },
+      "fr": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Connecté en tant que",
+        "menu": {
+          "logout": "Déconnexion",
+          "login": "Connexion",
+          "contact": "Contact",
+          "translate": "Néerlandais"
+        },
+        "banner": {
+          "text": "Les champions de la nuit !",
+          "heading": "Commandez vos billets maintenant !"
+        },
+        "tickets": {
+          "adults": {
+            "title": "Adultes",
+            "price": "€29,99",
+            "features": [
+              "✔ Accès à toutes les zones",
+              "✔ Accès à la piste de danse",
+              "✔ Équipements de base",
+              "✔ Spectacles live"
+            ],
+            "button": "Commander"
+          },
+          "children": {
+            "title": "Enfants (16 ans ou moins)",
+            "price": "€19,99",
+            "features": [
+              "✔ Accès à la zone principale",
+              "✔ Accès à la piste de danse",
+              "✔ Équipements de base",
+              "✔ Spectacles live"
+            ],
+            "button": "Commander"
+          }
+        }
+      }
+    }
+  }
+>>>>>>> Stashed changes
