@@ -156,7 +156,7 @@ async function showResult(data, isSuccess) {
     } else {
         // Error state
         scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
-        scanButton.textContent = `TAP TO SCAN AGAIN\n\nQR: ${data}`;
+        scanButton.textContent = `TAP TO SCAN AGAIN\n\n${data}`;
     }
 }
 // Event listener for the scan button (now acts as toggle)
