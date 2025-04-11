@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "Fout bij opslaan: " . $e->getMessage();
         }
     }
-    $stmt->execute();
+    
     header("Location: ticket.php");
     exit();
     ob_end_flush();
