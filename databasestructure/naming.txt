@@ -1,3 +1,5 @@
 Database pictures are named as DATABASENAME_TABLENAME.
 
 So test_tickettest belongs to the database "test" and table "tickettest" as example.
+
+Furthermore, dates within the tickets are formatted as "DD-MM-YYYY". So "02-03-2025" is a valid date. "02/03/2025" is not. Make sure to pay attention to this, otherwise the scanner will become upset.
