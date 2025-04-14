@@ -1,0 +1,3 @@
+Database pictures are named as DATABASENAME_TABLENAME.
+
+So test_tickettest belongs to the database "test" and table "tickettest" as example.
