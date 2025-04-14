@@ -1,14 +1,16 @@
 <?php
 header('Content-Type: application/json');
 
-// Database configuration (adjust these to your settings)
+// Database configuration
 $host = 'localhost';
 $dbname = 'test';
 $username = 'root';
 $password = 'root';
 
+// Configurable expiration period (in days)
+$expirationDays = 7;
+
 try {
-    // Get the POST data
     $data = json_decode(file_get_contents('php://input'), true);
     $qrCode = $data['qr_code'] ?? null;
 
@@ -16,41 +18,88 @@ try {
         throw new Exception('No QR code data provided');
     }
 
-    // Connect to database
     $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-    // Prepare and execute query
-    $stmtticket = $pdo->prepare("SELECT account_id, id FROM tickettest WHERE qr = :qr_code");
+    // Fetch ticket including date_of_issue
+    $stmtticket = $pdo->prepare("SELECT account_id, id, already_scanned, date_of_issue FROM tickettest WHERE qr = :qr_code");
     $stmtticket->bindParam(':qr_code', $qrCode);
     $stmtticket->execute();
 
     $resultticket = $stmtticket->fetch(PDO::FETCH_ASSOC);
     
-    $stmtlogin = $pdo->prepare("SELECT email, id FROM ticketlogin WHERE id = :account_id");
-    $stmtlogin->bindParam(':account_id', $resultticket['account_id']);
-    $stmtlogin->execute();
-    
-    $resultlogin = $stmtlogin->fetch(PDO::FETCH_ASSOC);
-    
-    if ($resultticket) {
-        // QR code found in database
+    // Check if already scanned
+    if ($resultticket['already_scanned']) {
         echo json_encode([
             'exists' => true,
+            'already_scanned' => true
+        ]);
+        exit;
+    }
+
+    if ($resultticket) {
+        // Check if ticket is expired
+        $dateOfIssueStr = $resultticket['date_of_issue'];
+        $dateParts = explode('-', $dateOfIssueStr);
+        
+        if (count($dateParts) !== 3) {
+            throw new Exception("Invalid date format in database (expected DD-MM-YYYY)");
+        }
+    
+        $day = $dateParts[0];
+        $month = $dateParts[1];
+        $year = $dateParts[2];
+        
+        // Create DateTime object (format: YYYY-MM-DD)
+        $dateOfIssue = DateTime::createFromFormat('Y-m-d', "$year-$month-$day");
+        
+        if (!$dateOfIssue) {
+            throw new Exception("Failed to parse ticket issue date");
+        }
+    
+        $currentDate = new DateTime();
+        $interval = $dateOfIssue->diff($currentDate);
+        $daysSinceIssue = $interval->days;
+    
+        if ($daysSinceIssue > $expirationDays) {
+            $updateStmt = $pdo->prepare("UPDATE tickettest SET already_scanned = 1 WHERE id = :id");
+            $updateStmt->bindParam(':id', $resultticket['id']);
+            $updateStmt->execute();
+            echo json_encode([
+                'exists' => true,
+                'expired' => true,
+                'date_of_issue' => $dateOfIssueStr // Return original string
+            ]);
+            exit;
+        }
+        
+        // Mark as scanned (if not expired/already scanned)
+        $updateStmt = $pdo->prepare("UPDATE tickettest SET already_scanned = 1 WHERE id = :id");
+        $updateStmt->bindParam(':id', $resultticket['id']);
+        $updateStmt->execute();
+        
+        $stmtlogin = $pdo->prepare("SELECT email, id FROM ticketlogin WHERE id = :account_id");
+        $stmtlogin->bindParam(':account_id', $resultticket['account_id']);
+        $stmtlogin->execute();
+        
+        $resultlogin = $stmtlogin->fetch(PDO::FETCH_ASSOC);
+        
+        // Valid ticket
+        echo json_encode([
+            'exists' => true,
+            'already_scanned' => false,
+            'expired' => false,
             'email' => $resultlogin['email'],
             'account_id' => $resultlogin['id'],
-            'id' => $resultticket['id']
+            'id' => $resultticket['id'],
+            'date_of_issue' => $resultticket['date_of_issue']
         ]);
     } else {
-        // QR code not found
-        echo json_encode([
-            'exists' => false
-        ]);
+        // Ticket not found
+        echo json_encode(['exists' => false]);
     }
 } catch (Exception $e) {
     http_response_code(500);
-    echo json_encode([
-        'error' => $e->getMessage()
-    ]);
+    echo json_encode(['error' => $e->getMessage()]);
 }
 ?>

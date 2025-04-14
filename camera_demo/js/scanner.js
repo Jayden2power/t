@@ -136,15 +136,24 @@ function scanQRCode() {
 async function showResult(data, isSuccess) {
     if (isSuccess) {
         try {
-            // Send the QR data to the PHP backend for verification
             const response = await verifyQRCode(data);
             
             if (response.exists) {
-                // Green screen for success
-                scanButton.style.backgroundColor = 'rgb(75, 175, 78)';
-                scanButton.textContent = `TAP TO SCAN AGAIN\n\n\nTICKET VERIFIED UNDER\n\nEMAIL: ${response.email}\nACCOUNT ID: ${response.account_id}\nTICKET ID: ${response.id}`;
+                if (response.already_scanned) {
+                    // Already scanned
+                    scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
+                    scanButton.textContent = 'TAP TO SCAN AGAIN\n\nTICKET ALREADY SCANNED!';
+                } else if (response.expired) {
+                    // Ticket is expired
+                    scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
+                    scanButton.textContent = `TAP TO SCAN AGAIN\n\nTICKET EXPIRED!\nISSUED ON: ${response.date_of_issue}`;
+                } else {
+                    // Valid ticket
+                    scanButton.style.backgroundColor = 'rgb(75, 175, 78)';
+                    scanButton.textContent = `TAP TO SCAN AGAIN\n\n\nTICKET VERIFIED UNDER\n\nEMAIL: ${response.email}\nACCOUNT ID: ${response.account_id}\nTICKET ID: ${response.id}\nISSUED ON: ${response.date_of_issue}`;
+                }
             } else {
-                // QR not found in database
+                // Not found
                 scanButton.style.backgroundColor = 'rgb(255, 0, 0)';
                 scanButton.textContent = 'TAP TO SCAN AGAIN\n\nTICKET NOT FOUND!';
             }
@@ -159,6 +168,7 @@ async function showResult(data, isSuccess) {
         scanButton.textContent = `TAP TO SCAN AGAIN\n\n${data}`;
     }
 }
+
 // Event listener for the scan button (now acts as toggle)
 scanButton.addEventListener('click', () => {
     if (isScanning) {
