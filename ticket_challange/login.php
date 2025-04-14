@@ -1,14 +1,9 @@
 <?php
 session_start();
 
-<<<<<<< Updated upstream
-=======
-
-// Databasegegevens
->>>>>>> Stashed changes
 $servername = "localhost";
 $username = "root";
-$password = "Lijamar2312@";
+$password = "password";
 $dbname = "db_ticket";
 
 
@@ -59,11 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                
                 exit();
             } else {
-<<<<<<< Updated upstream
                 $error = "Verkeerd wachtwoord of gebruiker niet gevonden.";
-=======
-                $error = "Wrong password or user not found.";
->>>>>>> Stashed changes
             }
         } catch (PDOException $e) {
             die("Fout bij inloggen: " . $e->getMessage());
@@ -94,7 +85,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 </head>
 <body>
     <div class="login-container">
-<<<<<<< Updated upstream
         <h1>Medewerker Login</h1>
         <form action="login.php" method="POST">
             <input type="text" name="email" class="input-field" placeholder="E-mail" required>
@@ -108,14 +98,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
 
             <button type="submit" name="login" class="login-button">Login</button>
             <p>Nog geen account? <a href="register.php">Registreer hier</a></p>
-=======
-        <h1>Login</h1>
-        <form action="login.php" method="POST">
-            <input type="text" name="email" class="input-field" placeholder="E-mail" required>
-            <input type="password" name="password" class="input-field" placeholder="Password" required>
-            <button type="submit" name="login" class="login-button">Login</button>
-            <p>No account <a href="register.php">Register here</a></p>
->>>>>>> Stashed changes
         </form>
 
         <?php if (isset($error)) echo "<p class='error-message'>$error</p>"; ?>
