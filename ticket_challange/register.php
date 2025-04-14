@@ -5,7 +5,7 @@ $servername = "localhost";
 
 $username = "root";
 
-$password = "password";
+$password = "Lijamar2312@";
 
 $dbname = "db_ticket";
 
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (empty($email) || empty($password)) {
         echo "Alle velden zijn verplicht.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Ongeldig e-mailadres.";
+        echo "Wrong e-mail.";
     } else {
         
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
@@ -66,12 +66,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
     <div class="registration-container">
-        <h1>Registreren</h1>
+        <h1>Register</h1>
         <form method="POST" action="">
-            <input type="email" id="email" name="email" class="input-field" placeholder="E-mailadres" required><br>
-            <input type="password" id="password" name="password" class="input-field" placeholder="Wachtwoord" required><br>
-            <button type="submit" class="submit-button">Registreren</button>
-            <p>Al een account <a href="login.php">Hier inloggen</a></p>
+            <input type="email" id="email" name="email" class="input-field" placeholder="E-mail" required><br>
+            <input type="password" id="password" name="password" class="input-field" placeholder="Password" required><br>
+            <button type="submit" class="submit-button">Register</button>
+            <p>Already a account <a href="login.php">Login</a></p>
         </form>
         <?php if (isset($error)) echo "<p class='error-message'>$error</p>"; ?>
     </div>

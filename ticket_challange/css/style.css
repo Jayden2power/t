@@ -16,6 +16,7 @@ body {
     position: relative;
 }
 
+
 .banner {
     height: 250px;
     display: flex;
@@ -139,10 +140,12 @@ body {
     transform: scale(1.05);
 }
 
-.order-btn a {
-    text-decoration: none;
+.ticket-box a {
     color: white;
+    text-decoration: none;
+    width: 100%;
     display: block;
+    text-align: center;
 }
 
 
@@ -218,3 +221,26 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
+<<<<<<< Updated upstream
+.language-selector {
+    padding: 10px;
+}
+
+.language-selector select {
+    background: transparent;
+    border: 1px solid #fff;
+    color: white;
+    padding: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.language-selector select option {
+    color: #333;
+}
+=======
+.language-switcher button.active {
+    font-weight: bold;
+    border-bottom: 2px solid;
+  }
+>>>>>>> Stashed changes
