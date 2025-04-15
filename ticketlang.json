@@ -1,0 +1,116 @@
+{
+    "translations": {
+      "nl": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Ingelogd als",
+        "form": {
+          "first_name": "Voornaam:",
+          "last_name": "Achternaam:",
+          "birth_date": "Geboortedatum (DD-MM-JJJJ):",
+          "day": "Dag",
+          "month": "Maand",
+          "year": "Jaar",
+          "months": [
+            "Januari", "Februari", "Maart", "April", "Mei", "Juni",
+            "Juli", "Augustus", "September", "Oktober", "November", "December"
+          ],
+          "email": "Email:",
+          "phone": "Telefoonnummer:",
+          "address": "Adres:",
+          "bsn": "BSN:",
+          "submit": "Versturen",
+          "reset": "Leegmaken"
+        },
+        "menu": {
+          "logout": "Uitloggen",
+          "login": "Inloggen",
+          "contact": "Contact",
+          "translate": "English"
+        }
+      },
+      "en": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Logged in as",
+        "form": {
+          "first_name": "First name:",
+          "last_name": "Last name:",
+          "birth_date": "Date of birth (DD-MM-YYYY):",
+          "day": "Day",
+          "month": "Month",
+          "year": "Year",
+          "months": [
+            "January", "February", "March", "April", "May", "June",
+            "July", "August", "September", "October", "November", "December"
+          ],
+          "email": "Email:",
+          "phone": "Phone number:",
+          "address": "Address:",
+          "bsn": "SSN:",
+          "submit": "Submit",
+          "reset": "Reset"
+        },
+        "menu": {
+          "logout": "Logout",
+          "login": "Login",
+          "contact": "Contact",
+          "translate": "Français"
+        }
+      },
+      "fr": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Connecté en tant que",
+        "form": {
+          "first_name": "Prénom:",
+          "last_name": "Nom de famille:",
+          "birth_date": "Date de naissance (JJ-MM-AAAA):",
+          "day": "Jour",
+          "month": "Mois",
+          "year": "Année",
+          "months": [
+            "Janvier", "Février", "Mars", "Avril", "Mai", "Juin",
+            "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+          ],
+          "email": "Email:",
+          "phone": "Numéro de téléphone:",
+          "address": "Adresse:",
+          "bsn": "Numéro de sécurité sociale:",
+          "submit": "Envoyer",
+          "reset": "Réinitialiser"
+        },
+        "menu": {
+          "logout": "Déconnexion",
+          "login": "Connexion",
+          "contact": "Contact",
+          "translate": "Nederlands"
+        }
+      },
+      "li": {
+        "site_title": "Spik & Span Tickets",
+        "logged_in_as": "Ingelog es",
+        "form": {
+          "first_name": "Veurnoam:",
+          "last_name": "Achternaam:",
+          "birth_date": "Geboortedatum (DD-MM-JJJJ):",
+          "day": "Daag",
+          "month": "Maond",
+          "year": "Jaor",
+          "months": [
+            "Jannewarie", "Fibberwarie", "Mèrt", "April", "Mei", "Juni",
+            "Juli", "Augustus", "September", "Oktober", "November", "December"
+          ],
+          "email": "Email:",
+          "phone": "Telefoonnummer:",
+          "address": "Adres:",
+          "bsn": "BSN:",
+          "submit": "Versture",
+          "reset": "Laegmake"
+        },
+        "menu": {
+          "logout": "Oetlogge",
+          "login": "Inlogge",
+          "contact": "Contact",
+          "translate": "Nederlands"
+        }
+      }
+    }
+  }
