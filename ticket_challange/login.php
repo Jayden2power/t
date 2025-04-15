@@ -3,7 +3,7 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "Lijamar2312@";
+$password = "password";
 $dbname = "db_ticket";
 
 
