@@ -96,7 +96,7 @@ if ($statement->execute()) {
     $conn->close();
 
     // Doorverwijzen naar het overzicht met de berichten
-    //header("Location: overzicht.php");
+    header("Location: ticket_template/index.html");
     exit();
 }
 }
