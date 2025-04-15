@@ -105,5 +105,6 @@ ini_set('display_errors', 1);
     
 
     <script src="/ticket_challange/js/ticket.js"></script>
+    <script src="ticketlang.js"></script>
 </body>
 </html>
