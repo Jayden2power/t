@@ -3,7 +3,7 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "Lijamar2312@";
+$password = "root";
 $dbname = "db_ticket";
 
 
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
                 $employeeCode = $_POST['employee_code'] ?? '';
                 if (!empty($employeeCode) && $employeeCode === 'Carnavale123') {
                     $_SESSION['role'] = 'employee';
-                    header("Location: b.php");
+                    header("Location: mede.php");
                 } else {
                     header("Location: ticket.php");
                 }
