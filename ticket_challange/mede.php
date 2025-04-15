@@ -35,7 +35,7 @@ session_start();
                     <option value="fr">Français</option>
                     <option value="li">Limburgs</option>
                 </select>
-            
+            </div>
         </div>
 
         <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
