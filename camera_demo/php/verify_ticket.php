@@ -22,12 +22,12 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Fetch ticket including date_of_issue
-    $stmtticket = $pdo->prepare("SELECT account_id, id, already_scanned, date_of_issue FROM tickettest WHERE qr = :qr_code");
+    $stmtticket = $pdo->prepare("SELECT account_id, id, already_scanned, date_of_issue, date_of_scan FROM tickettest WHERE qr = :qr_code");
     $stmtticket->bindParam(':qr_code', $qrCode);
     $stmtticket->execute();
 
     $resultticket = $stmtticket->fetch(PDO::FETCH_ASSOC);
-    
+
     // Check if already scanned
     if ($resultticket['already_scanned']) {
         echo json_encode([
@@ -58,11 +58,12 @@ try {
         }
     
         $currentDate = new DateTime();
+        $formattedDate = $currentDate->format('d-m-Y'); // Format first
         $interval = $dateOfIssue->diff($currentDate);
         $daysSinceIssue = $interval->days;
     
         if ($daysSinceIssue > $expirationDays) {
-            $updateStmt = $pdo->prepare("UPDATE tickettest SET already_scanned = 1 WHERE id = :id");
+            $updateStmt = $pdo->prepare("UPDATE tickettest SET date_of_scan = '$formattedDate', already_scanned = 1 WHERE id = :id");
             $updateStmt->bindParam(':id', $resultticket['id']);
             $updateStmt->execute();
             echo json_encode([
@@ -73,8 +74,7 @@ try {
             exit;
         }
         
-        // Mark as scanned (if not expired/already scanned)
-        $updateStmt = $pdo->prepare("UPDATE tickettest SET already_scanned = 1 WHERE id = :id");
+        $updateStmt = $pdo->prepare("UPDATE tickettest SET date_of_scan = '$formattedDate', already_scanned = 1 WHERE id = :id");
         $updateStmt->bindParam(':id', $resultticket['id']);
         $updateStmt->execute();
         
