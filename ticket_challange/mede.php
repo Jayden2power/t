@@ -28,6 +28,13 @@ session_start();
                     <button type="submit" class="logout-btn">Uitloggen</button>
                 </form>
             <?php endif; ?>
+            <div class="language-selector">
+                <select id="language-select">
+                    <option value="nl">Nederlands</option>
+                    <option value="en">English</option>
+                    <option value="fr">Français</option>
+                    <option value="li">Limburgs</option>
+                </select>
             
         </div>
 
