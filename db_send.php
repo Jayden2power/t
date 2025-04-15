@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Info verzender</title>
-</head>
-<body>
 <?php
-
 session_start();
+
 
 if (!isset($_SESSION['user_id'])) {
     $_SESSION['user_id'] = session_id(); // Or another unique ID (e.g., from login).
@@ -23,13 +15,33 @@ ini_set('display_errors', 1);
 // Zonder dit gedeelte zou het overzicht.php meteen geladen worden doormiddel van de include 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-$first_name = isset($_POST["first_name"]) ? $_POST["first_name"] : ''; // Zorgt ervoor dat er geen value opgehaald wordt als er geen is
-$last_name = isset($_POST["last_name"]) ? $_POST["last_name"] : '';
-$date_of_birth = isset($_POST["date_of_birth"]) ? $_POST["date_of_birth"] : '';
-$email = isset($_POST["email"]) ? $_POST["email"] : '';
-$phone_number = isset($_POST["phone_number"]) ? $_POST["phone_number"] : '';
-$address = isset($_POST["address"]) ? $_POST["address"] : '';
-$bsn = isset($_POST["bsn"]) ? $_POST["bsn"] : '';
+    // Replace the old date_of_birth collection with the new dropdown handling
+    $first_name = isset($_POST["first_name"]) ? $_POST["first_name"] : '';
+    $last_name = isset($_POST["last_name"]) ? $_POST["last_name"] : '';
+    
+    // NEW CODE FOR DATE OF BIRTH - DD-MM-YYYY FORMAT
+    $day = isset($_POST["day"]) ? $_POST["day"] : '';
+    $month = isset($_POST["month"]) ? $_POST["month"] : '';
+    $year = isset($_POST["year"]) ? $_POST["year"] : '';
+    
+    // Validate and combine the date components
+    if (!empty($day) && !empty($month) && !empty($year)) {
+        if (checkdate($month, $day, $year)) {
+            // Format as DD-MM-YYYY with leading zeros
+            $date_of_birth = sprintf("%02d-%02d-%04d", $day, $month, $year);
+        } else {
+            die("Ongeldige geboortedatum ingevoerd!");
+        }
+    } else {
+        $date_of_birth = ''; // Or handle the empty case as you prefer
+    }
+    // END OF NEW DATE OF BIRTH CODE
+    
+    $email = isset($_POST["email"]) ? $_POST["email"] : '';
+    $phone_number = isset($_POST["phone_number"]) ? $_POST["phone_number"] : '';
+    $address = isset($_POST["address"]) ? $_POST["address"] : '';
+    $bsn = isset($_POST["bsn"]) ? $_POST["bsn"] : '';
+
 
 
 // Bijv. $naam = $_POST["gast_naam"]; geeft array fout zodra je op de pagina komt
@@ -60,13 +72,13 @@ $qr_data = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLM
 $statement = $conn->prepare("INSERT INTO qr_codes(qr_data, first_name, last_name, date_of_birth, email, phone_number, address, bsn, account_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
 // Bind parameters - note phone_number and bsn are integers (i)
-$statement->bind_param("sssssiisi", 
+$statement->bind_param("sssssssii", 
     $qr_data,          // s (string)
     $first_name,       // s (string)
     $last_name,        // s (string)
     $date_of_birth,    // s (string)
     $email,            // s (string)
-    $phone_number,     // i (integer)
+    $phone_number,     // s (integer)
     $address,          // s (string)
     $bsn,              // i (integer)
     $_SESSION['user_id'] // i (integer)
