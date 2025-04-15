@@ -22,27 +22,21 @@ ini_set('display_errors', 1);
         echo '<div class="top-right">Ingelogd als ' . htmlspecialchars($_SESSION['email']) . '</div>';
     }
     ?>
-        <!-- <button class="menu-btn" onclick="toggleMenu()">☰</button> -->
+         <button class="menu-btn" onclick="toggleMenu()">☰</button>
    
-        <div class="menu" id="sidebar">
-            <?php if (isset($_SESSION['email'])): ?>
-                <a href="logout.php" class="menu-logout">Uitloggen</a>
-            <?php else: ?>
-                <a href="login.php" class="menu-login">Inloggen</a>
-            <?php endif; ?>
-            <a href="#" class="menu-contact">Contact</a>
-            <div class="language-selector">
-                <select id="language-select">
-                    <option value="nl">Nederlands</option>
-                    <option value="en">English</option>
-                    <option value="fr">Français</option>
-                    <option value="li">Limburgs</option>
-                </select>
-            </div>
-        </div>
-    
-        <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-    </div>
+   <div class="menu" id="sidebar">
+       <div class="language-selector">
+           <select id="language-select">
+               <option value="nl">Nederlands</option>
+               <option value="en">English</option>
+               <option value="fr">Français</option>
+               <option value="li">Limburgs</option>
+           </select>
+       </div>
+   </div>
+
+   <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+</div>
 
     <div style="margin-top: 15px"; id="ticket-site-form">
         <form action="db_send.php" method="post">
@@ -110,6 +104,6 @@ ini_set('display_errors', 1);
     <div id="qrcode"></div>
     
 
-    
+    <script src="/ticket_challange/js/ticket.js"></script>
 </body>
 </html>
