@@ -221,7 +221,7 @@ body {
     background: rgba(0, 0, 0, 0.5);
 }
 
-<<<<<<< Updated upstream
+
 .language-selector {
     padding: 10px;
 }
@@ -238,9 +238,8 @@ body {
 .language-selector select option {
     color: #333;
 }
-=======
+
 .language-switcher button.active {
     font-weight: bold;
     border-bottom: 2px solid;
   }
->>>>>>> Stashed changes
