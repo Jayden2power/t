@@ -16,7 +16,7 @@ try {
 $account_id = 2;
 $ticket_id = 3;
 
-$sql = "SELECT id, qr, firstname, lastname, date_of_birth, email, telnum, address, bsn, date_of_issue, account_id FROM $tbname WHERE id='$ticket_id' AND account_id='$account_id'";
+$sql = "SELECT id, qr, firstname, lastname, date_of_birth, email, phone_number, address, bsn, date_of_issue, account_id FROM $tbname WHERE id='$ticket_id' AND account_id='$account_id'";
 $stmt = $conn->query($sql);
 
 // Fetch the row as an associative array
