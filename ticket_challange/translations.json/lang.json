@@ -115,8 +115,8 @@
       }
     },
     "li": {
-      "site_title": "Spik & Span Kaartjes",
-      "logged_in_as": "Ingelogd es",
+      "site_title": "Spik & Span Keertjes",
+      "logged_in_as": "Ingelog es",
       "menu": {
         "logout": "Oetlogge",
         "login": "Inlogge",
@@ -125,15 +125,15 @@
       },
       "banner": {
         "text": "De kampioene van de nach!",
-        "heading": "Bestel noe dien kaartjes!"
+        "heading": "Bestel noe dien keertjes!"
       },
       "tickets": {
         "adults": {
           "title": "Volwassene",
           "price": "€29,99",
           "features": [
-            "✔ Toegank tot alle zones",
-            "✔ Toegank tot dansvloer",
+            "✔ Touwgaank tot alle zones",
+            "✔ Touwgaank tot dansvloer",
             "✔ Basis veurzeninge",
             "✔ Live optredens"
           ],
@@ -143,8 +143,8 @@
           "title": "Kinger (16 of jónger)",
           "price": "€19,99",
           "features": [
-            "✔ Toegank tot hoofdzône",
-            "✔ Toegank tot dansvloer",
+            "✔ Touwgaank tot hoofdzône",
+            "✔ Tougaank tot dansvloer",
             "✔ Basis veurzeninge",
             "✔ Live optredens"
           ],

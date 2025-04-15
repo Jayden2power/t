@@ -95,5 +95,6 @@ session_start();
         }
     </script>
     <script src="js/taal.js"></script>
+    
 </body>
 </html>
