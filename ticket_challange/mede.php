@@ -87,5 +87,6 @@ session_start();
             overlay.classList.toggle('active');
         }
     </script>
+    <script src="js/taal.js"></script>
 </body>
 </html>
