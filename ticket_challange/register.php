@@ -5,7 +5,7 @@ $servername = "localhost";
 
 $username = "root";
 
-$password = "Lijamar2312@";
+$password = "root";
 
 $dbname = "db_ticket";
 
