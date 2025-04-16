@@ -24,7 +24,7 @@ session_start();
             <?php else: ?>
                 <a href="login.php" class="menu-login">Inloggen</a>
             <?php endif; ?>
-            <a href="prifacy" class="menu-contact">Prifacy</a>
+            <a href="prifacy.html" class="menu-contact">Privacy</a>
             <div class="language-selector">
                 <select id="language-select">
                     <option value="nl">Nederlands</option>
