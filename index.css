@@ -13,7 +13,7 @@ body {
 /* Header verbeteringen */
 .header {
     background: linear-gradient(90deg, #ffcc00, #00aaff, #ff0033);
-    padding: 20px;
+    padding: 5px;
     text-align: center;
     font-size: 28px;
     font-weight: bold;
@@ -26,8 +26,8 @@ body {
 #ticket-site-form {
     max-width: 600px;
     margin: 30px auto;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.363);
     border-radius: 15px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);
@@ -37,7 +37,7 @@ body {
 #ticket-site-form form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: px;
 }
 
 #ticket-site-form label {
@@ -71,7 +71,6 @@ body {
     box-shadow: 0 0 0 3px rgba(0, 170, 255, 0.2);
 }
 
-/* Datum selectors */
 .date-of-birth-container {
     display: flex;
     gap: 10px;
@@ -81,7 +80,6 @@ body {
     flex: 1;
 }
 
-/* Knoppen */
 #submit_knop, #reset_knop {
     margin-top: 15px;
     padding: 12px;
