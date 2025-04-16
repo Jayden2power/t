@@ -16,8 +16,8 @@ ini_set('display_errors', 1);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Replace the old date_of_birth collection with the new dropdown handling
-    $first_name = isset($_POST["first_name"]) ? $_POST["first_name"] : '';
-    $last_name = isset($_POST["last_name"]) ? $_POST["last_name"] : '';
+    $firstname = isset($_POST["firstname"]) ? $_POST["firstname"] : '';
+    $lastname = isset($_POST["lastname"]) ? $_POST["lastname"] : '';
     
     // NEW CODE FOR DATE OF BIRTH - DD-MM-YYYY FORMAT
     $day = isset($_POST["day"]) ? $_POST["day"] : '';
@@ -53,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 $host = 'localhost';
 $username = 'root'; 
 $password = 'password';
-$database = 'db_tickets'; 
+$database = 'db_ticketsite'; 
 
 
 
@@ -69,13 +69,12 @@ if ($conn->connect_error) {
 $qr_data = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 62);
 
 // Prepare statement (excluding created_at - let DB handle it)
-$statement = $conn->prepare("INSERT INTO qr_codes(qr_data, first_name, last_name, date_of_birth, email, phone_number, address, bsn, account_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-
+$statement = $conn->prepare("INSERT INTO tb_tickets(qr, firstname, lastname, date_of_birth, email, phone_number, address, bsn, account_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
 // Bind parameters - note phone_number and bsn are integers (i)
 $statement->bind_param("sssssssii", 
     $qr_data,          // s (string)
-    $first_name,       // s (string)
-    $last_name,        // s (string)
+    $firstname,       // s (string)
+    $lastname,        // s (string)
     $date_of_birth,    // s (string)
     $email,            // s (string)
     $phone_number,     // s (integer)

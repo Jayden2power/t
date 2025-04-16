@@ -5,9 +5,9 @@ $servername = "localhost";
 
 $username = "root";
 
-$password = "Lijamar2312@";
+$password = "password";
 
-$dbname = "db_ticket";
+$dbname = "db_ticketsite";
 
 try {
     
@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         try {
             // Voorbereide SQL-query
-            $sql = "INSERT INTO tb_ticket (email, password) VALUES (:email, :password)";
+            $sql = "INSERT INTO tb_login (email, password) VALUES (:email, :password)";
             $stmt = $pdo->prepare($sql);
 
             // Waarden binden

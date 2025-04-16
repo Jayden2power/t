@@ -3,8 +3,8 @@ session_start();
 
 $servername = "localhost";
 $username = "root";
-$password = "Lijamar2312@";
-$dbname = "db_ticket";
+$password = "password";
+$dbname = "db_ticketsite";
 
 
 try {
@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['login'])) {
     } else {
         try {
            
-            $stmt = $conn->prepare("SELECT id, password FROM tb_ticket WHERE email = :email LIMIT 1");
+            $stmt = $conn->prepare("SELECT id, password FROM tb_login WHERE email = :email LIMIT 1");
             $stmt->bindParam(':email', $email);
             $stmt->execute();
             $user = $stmt->fetch(PDO::FETCH_ASSOC);
