@@ -54,13 +54,13 @@ session_start();
             </div>
             <div class="ticket-details">
                 <ul>
-                    <li>✔ Toegang tot alle zones</li>
-                    <li>✔ Toegang tot dansvloer</li>
-                    <li>✔ Basis faciliteiten</li>
-                    <li>✔ Live optredens</li>
+                    <li> Toegang tot alle zones</li>
+                    <li> Toegang tot dansvloer</li>
+                    <li> Basis faciliteiten</li>
+                    <li> Live optredens</li>
                 </ul>
             </div>
-            <button class="order-btn">Scan nu</button>
+            <button class="order-btn" onclick="window.location.href='../camera_demo/index.html'">Scan nu</button>
         </div>
 
         <div class="featured-image-container">
@@ -76,13 +76,13 @@ session_start();
             </div>
             <div class="ticket-details">
                 <ul>
-                    <li>✔ Toegang tot hoofdzone</li>
-                    <li>✔ Toegang tot dansvloer</li>
-                    <li>✔ Basis faciliteiten</li>
-                    <li>✔ Live optredens</li>
+                    <li> Toegang tot hoofdzone</li>
+                    <li> Toegang tot dansvloer</li>
+                    <li> Basis faciliteiten</li>
+                    <li> Live optredens</li>
                 </ul>
             </div>
-            <button class="order-btn">Scan nu</button>
+            <button class="order-btn" onclick="window.location.href='../camera_demo/index.html'">Scan nu</button>
         </div>
     </div>
 
