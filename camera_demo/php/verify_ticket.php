@@ -3,9 +3,9 @@ header('Content-Type: application/json');
 
 // Database configuration
 $host = 'localhost';
-$dbname = 'test';
+$dbname = 'db_ticketsite';
 $username = 'root';
-$password = 'root';
+$password = 'password';
 
 // Configurable expiration period (in days)
 $expirationDays = 7;
@@ -22,7 +22,7 @@ try {
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     // Fetch ticket including date_of_issue
-    $stmtticket = $pdo->prepare("SELECT account_id, id, already_scanned, date_of_issue, date_of_scan FROM tickettest WHERE qr = :qr_code");
+    $stmtticket = $pdo->prepare("SELECT account_id, id, already_scanned, date_of_issue, date_of_scan FROM tb_tickets WHERE qr = :qr_code");
     $stmtticket->bindParam(':qr_code', $qrCode);
     $stmtticket->execute();
 
@@ -63,7 +63,7 @@ try {
         $daysSinceIssue = $interval->days;
     
         if ($daysSinceIssue > $expirationDays) {
-            $updateStmt = $pdo->prepare("UPDATE tickettest SET date_of_scan = '$formattedDate', already_scanned = 1 WHERE id = :id");
+            $updateStmt = $pdo->prepare("UPDATE tb_tickets SET date_of_scan = '$formattedDate', already_scanned = 1 WHERE id = :id");
             $updateStmt->bindParam(':id', $resultticket['id']);
             $updateStmt->execute();
             echo json_encode([
@@ -74,11 +74,11 @@ try {
             exit;
         }
         
-        $updateStmt = $pdo->prepare("UPDATE tickettest SET date_of_scan = '$formattedDate', already_scanned = 1 WHERE id = :id");
+        $updateStmt = $pdo->prepare("UPDATE tb_tickets SET date_of_scan = '$formattedDate', already_scanned = 1 WHERE id = :id");
         $updateStmt->bindParam(':id', $resultticket['id']);
         $updateStmt->execute();
         
-        $stmtlogin = $pdo->prepare("SELECT email, id FROM ticketlogin WHERE id = :account_id");
+        $stmtlogin = $pdo->prepare("SELECT email, id FROM tb_login WHERE id = :account_id");
         $stmtlogin->bindParam(':account_id', $resultticket['account_id']);
         $stmtlogin->execute();
         

@@ -41,11 +41,11 @@ ini_set('display_errors', 1);
 
     <div style="margin-top: 15px"; id="ticket-site-form">
         <form action="db_send.php" method="post">
-            <label for="first_name">Voornaam:</label><br>
-            <input type="text" id="first_name" name="first_name" class="input" required><br>
+            <label for="firstname">Voornaam:</label><br>
+            <input type="text" id="firstname" name="firstname" class="input" required><br>
 
-            <label for="last_name">Achternaam:</label><br>
-            <input type="text" id="last_name" name="last_name" class="input" required><br>
+            <label for="lastname">Achternaam:</label><br>
+            <input type="text" id="lastname" name="lastname" class="input" required><br>
 
             <label>Geboortedatum (DD-MM-JJJJ):</label><br>
             <div class="date-of-birth-container" style="display: flex; gap: 5px;">

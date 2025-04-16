@@ -67,11 +67,11 @@ if ($conn->connect_error) {
 
 // Generate QR data
 $qr_data = substr(str_shuffle('0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'), 0, 62);
-
+$date_of_issue = (new DateTime())->format('d-m-Y');
 // Prepare statement (excluding created_at - let DB handle it)
-$statement = $conn->prepare("INSERT INTO tb_tickets(qr, firstname, lastname, date_of_birth, email, phone_number, address, bsn, account_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$statement = $conn->prepare("INSERT INTO tb_tickets(qr, firstname, lastname, date_of_birth, email, phone_number, address, bsn, date_of_issue, account_id) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 // Bind parameters - note phone_number and bsn are integers (i)
-$statement->bind_param("sssssssii", 
+$statement->bind_param("sssssssisi", 
     $qr_data,          // s (string)
     $firstname,       // s (string)
     $lastname,        // s (string)
@@ -80,6 +80,7 @@ $statement->bind_param("sssssssii",
     $phone_number,     // s (integer)
     $address,          // s (string)
     $bsn,              // i (integer)
+    $date_of_issue,     // s (string)
     $_SESSION['user_id'] // i (integer)
     
 );
