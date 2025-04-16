@@ -25,6 +25,7 @@ ini_set('display_errors', 1);
          <button class="menu-btn" onclick="toggleMenu()">☰</button>
    
    <div class="menu" id="sidebar">
+        <a href="/ticket_challange/ticket.php">Home</a>
        <div class="language-selector">
            <select id="language-select">
                <option value="nl">Nederlands</option>
