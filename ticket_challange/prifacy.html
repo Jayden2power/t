@@ -1,89 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prifacybeleid</title>
+    <meta name="description" content="Privacybeleid van Spik & Span ticket verkoop">
+    <title>Privacybeleid - Spik & Span</title>
     <link rel="stylesheet" href="./css/prifacy.css">
 </head>
 <body>
+    <header>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+        <h1>Spik & Span</h1>
+    </header>
     
-    <button class="menu-btn" onclick="toggleMenu()">☰</button>
-   
     <div class="menu" id="sidebar">
-         <a href="/ticket_challange/ticket.php">Home</a>
+        <a href="ticket.php">Home</a>
         <div class="language-selector">
-            <select id="language-select">
-                <option value="nl">Nederlands</option>
+            <select id="language-select" onchange="changeLanguage()">
+                <option value="nl" selected>Nederlands</option>
                 <option value="en">English</option>
             </select>
         </div>
     </div>
  
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
- </div>
 
+    <main class="privacy-container">
+        <h2>Privacybeleid</h2>
+        
+        <nav class="privacy-nav">
+            <ol>
+                <li><a href="#introduction">Inleiding</a></li>
+                <li><a href="#data-collected">Welke gegevens worden verzameld?</a></li>
+                <li><a href="#data-purpose">Waarom worden deze gegevens verzameld?</a></li>
+                <li><a href="#data-retention">Hoe lang worden ze bewaard?</a></li>
+                <li><a href="#data-sharing">Worden ze gedeeld?</a></li>
+                <li><a href="#user-rights">Welke rechten heeft de gebruiker?</a></li>
+                <li><a href="#contact">Onze contactgegevens</a></li>
+            </ol>
+        </nav>
 
+        <section id="introduction">
+            <h3>1. Inleiding</h3>
+            <p>Bij Spik & Span nemen wij uw privacy serieus. Dit beleid legt uit welke gegevens we verzamelen en hoe we deze gebruiken.</p>
+        </section>
+
+        <section id="data-collected">
+            <h3>2. Welke gegevens worden verzameld?</h3>
+            <p>Bij onze Spik & Span ticket verkoop website worden de volgende gegevens verzameld:</p>
+            <ul>
+                <li>Voor- en achternaam</li>
+                <li>Geboortedatum</li>
+                <li>Adresgegevens</li>
+                <li>Telefoonnummer</li>
+                <li>E-mailadres</li>
+                <li>Burgerservicenummer</li>
+            </ul>
+        </section>
+
+        <section id="data-purpose">
+            <h3>3. Waarom deze gegevens?</h3>
+            <p>Om ervoor te zorgen dat uw ticket alleen voor u bruikbaar is, zijn wij vereist deze informatie op te slaan in onze systemen. Dit is om fraude te voorkomen, en illegale kopieën tegen te gaan.</p>
+            <p>Wij streven ernaar om u een soepele ticket aanschaffing aan te bieden, en deze gegevens zijn vereist om dit zo goed mogelijk te laten verlopen.</p>
+        </section>
+
+        <section id="data-retention">
+            <h3>4. Hoe lang worden ze bewaard?</h3>
+            <p>We streven ernaar om uw gegevens niet langer te bewaren dan nodig is. Omdat dit vereist is om de ticket verkoop legaal en soepel te laten verlopen, zullen wij uw gegevens opslaan totdat de Spik & Span ticketverkoop beëindigd is, en ook het betreffende evenement afgelopen is.</p>
+        </section>
+
+        <section id="data-sharing">
+            <h3>5. Worden de gegevens gedeeld?</h3>
+            <p>Uw gegevens zullen worden gedeeld met alle betreffende partijen die betrekking hebben met het evenement, en de ticketverkoop. Voor meer informatie over deze partijen kunt u contact met ons opnemen via de contactgegevens aan het einde van deze privacyverklaring.</p>
+        </section>
+
+        <section id="user-rights">
+            <h3>6. Welke rechten heeft u, als gebruiker?</h3>
+            <p>Wij stellen u graag in staat om gebruik te maken van uw wettelijke rechten die u heeft onder het privacyrecht. Dit betekent dat u altijd een verzoek kan indienen om inzage te krijgen in de gegevens die wij van u verwerken.</p>
+            <p>Daarnaast kunt u ook een verzoek indienen om gegevens te rectificeren, te beperken of geheel te wissen uit de systemen van de Spik & Span ticket verkoop. U heeft altijd het recht om onjuiste gegevens aan te vullen of te verbeteren. Als u ons verzoekt om uw gegevens te beperken of te wissen, zullen wij toetsen of dit mogelijk is. In deze toets houden wij ons aan de wettelijke vereisten en kijken wij bijvoorbeeld of wij geen wettelijke plicht hebben om de gegevens te bewaren. Daarnaast heeft u het recht om te vragen om de gegevens die wij over u verwerken aan u over te dragen of aan een andere organisatie.</p>
+            <p>Als u een van deze rechten wil uitvoeren, dan kunt u schriftelijk verzoek mailen naar de functionaris voor gegevensbescherming via <a href="mailto:info@spikspan.nl">info@spikspan.nl</a></p>
+        </section>
+
+        <section id="contact">
+            <h3>7. Contactgegevens</h3>
+            <p>U kunt ons bereiken via de volgende opties:</p>
+            <address>
+                E-mail: <a href="mailto:info@spikspan.nl">info@spikspan.nl</a><br>
+                Telefoonnummer: <a href="tel:0642069123">06-42069123</a><br>
+                <small>Wij zijn via het bovenstaande nummer bereikbaar op werkdagen van 09:00 tot 17:00.</small><br>
+                <small>Ook kunt u ons via WhatsApp bereiken via hetzelfde nummer.</small><br>
+                <small>Wij streven ernaar om uw bericht of telefoontje binnen veertien werkdagen te beantwoorden.</small>
+            </address>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; <span id="year"></span> Spik & Span. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script src="js/ticket.js"></script>
  
-
-
-<h1>Spik & Span <br></h1>
-<br><H2>Privacybeleid</H2>
-
-<br>
-1.	Inleiding <br>
-2.	Welke gegevens worden verzameld? <br>
-3.	Waarom worden deze gegevens verzameld? <br>
-4.	Hoe lang worden ze bewaard? <br>
-5.	Worden ze gedeeld? <br>
-6.	Welke rechten heeft de gebruiker? <br>
-7.	Onze contactgegevens. <br>
-
-<br><br>
- 
-<h3>Welke gegevens worden verzameld?</h3>
-
-<br> <br>
-Bij onze Spik & Span ticket verkoop website worden de volgende gegevens verzameld: <br>
--	Voor- en achternaam. <br>
--	Geboortedatum. <br>
--	Adresgegevens. <br>
--	Telefoonnummer. <br>
--	E-mailadres. <br>
--	Burgerservicenummer. <br> <br>
-
-<h3>Waarom deze gegevens?</h3> <br> <br>
-Om ervoor te zorgen dat uw ticket alleen voor u bruikbaar is, zijn wij vereist deze informatie op te slaan in onze systemen. Dit is om fraude te voorkomen, en illegale kopieën tegen te gaan. <br>
-Wij streven ernaar om u een soepele ticket aanschaffing aan te bieden, en deze gegevens zijn vereist om dit zo goed mogelijk te laten verlopen.
-
-<br><br>
-
-
-<h3>Hoe lang worden ze bewaard?</h3><br><br>
-We streven ernaar om uw gegevens niet langer te bewaren dan nodig is. Omdat dit vereist is om de ticket verkoop legaal en soepel te laten verlopen, zullen wij uw gegevens opslaan totdat de Spik & Span ticketverkoop beëindigd is, en ook het betreffende evenement afgelopen is.
-<br>
-<h3>Worden de gegevens gedeeld?</h3><br><br>
-Uw gegevens zullen worden gedeeld met alle betreffende partijen die betrekking hebben met het evenement, en de ticketverkoop. Voor meer informatie over deze partijen kunt u contact met ons opnemen via de contactgegevens aan het einde van deze privacyverklaring. 
-<br>
-<h3>Welke rechten heeft u, als gebruiker?</h3><br><br>
-Wij stellen u graag in staat om gebruik te maken van uw wettelijke rechten die u heeft onder het privacyrecht. Dit betekent dat u altijd een verzoek kan indienen om inzage te krijgen in de gegevens die wij van u verwerken.
-Daarnaast kunt u ook een verzoek indienen om gegevens te rectificeren, te beperken of geheel te wissen uit de systemen van de Spik & Span ticket verkoop. U heeft altijd het recht om onjuiste gegevens aan te vullen of te verbeteren. Als u ons verzoekt om uw gegevens te beperken of te wissen, zullen wij toetsen of dit mogelijk is. In deze toets houden wij ons aan de wettelijke vereisten en kijken wij bijvoorbeeld of wij geen wettelijke plicht hebben om de gegevens te bewaren. Daarnaast heeft u het recht om te vragen om de gegevens die wij over u verwerken aan u over te dragen of aan een andere organisatie.
-<br>
-Als u een van deze rechten wil uitvoeren, dan kunt u schriftelijk verzoek mailen naar de functionaris voor gegevensbescherming via info@spikspan.nl<br><br>
-<h3>Contactgegevens</h3><br>
-U kunt ons bereiken via de volgende opties:<br>
-E-mail: info@spikspan.nl<br>
-Telefoonnummer: 06-42069123<br>
-Wij zijn via het bovenstaande nummer bereikbaar op werkdagen van 09:00 tot 17:00.<br>
-Ook kunt u ons via WhatsApp bereiken via hetzelfde nummer.<br>
-Wij streven ernaar om uw bericht of telefoontje binnen veertien werkdagen te beantwoorden.<br>
-
-
- <script src="/ticket_challange/js/ticket.js"></script>
-
-
-
-
-
 </body>
 </html>
