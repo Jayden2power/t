@@ -16,9 +16,9 @@ try {
 }
 
 if (!isset($_SESSION['user_id'])) {
-    $_SESSION['user_id'] = session_id(); // Or another unique ID (e.g., from login).
+    $_SESSION['user_id'] = session_id(); 
 }
-$account_id = $_SESSION['user_id']; // Now safe to use.
+$account_id = $_SESSION['user_id'];
 
 
 $sql = "SELECT id, qr, firstname, lastname, date_of_birth, email, phone_number, address, bsn, date_of_issue, account_id FROM $tbname WHERE account_id='$account_id'";
