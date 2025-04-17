@@ -1,0 +1,136 @@
+{
+    "translations": {
+      "nl": {
+        "privacy": {
+          "title": "Privacybeleid - Spik & Span",
+          "menu": {
+            "home": "Home",
+            "language": "Taal",
+            "languages": {
+              "nl": "Nederlands",
+              "en": "English"
+            }
+          },
+          "sections": {
+            "introduction": {
+              "title": "1. Inleiding",
+              "content": "Bij Spik & Span nemen wij uw privacy serieus. Dit beleid legt uit welke gegevens we verzamelen en hoe we deze gebruiken."
+            },
+            "data_collected": {
+              "title": "2. Welke gegevens worden verzameld?",
+              "content": "Bij onze Spik & Span ticket verkoop website worden de volgende gegevens verzameld:",
+              "items": [
+                "Voor- en achternaam",
+                "Geboortedatum",
+                "Adresgegevens",
+                "Telefoonnummer",
+                "E-mailadres",
+                "Burgerservicenummer"
+              ]
+            },
+            "data_purpose": {
+              "title": "3. Waarom deze gegevens?",
+              "content": [
+                "Om ervoor te zorgen dat uw ticket alleen voor u bruikbaar is, zijn wij vereist deze informatie op te slaan in onze systemen. Dit is om fraude te voorkomen, en illegale kopieën tegen te gaan.",
+                "Wij streven ernaar om u een soepele ticket aanschaffing aan te bieden, en deze gegevens zijn vereist om dit zo goed mogelijk te laten verlopen."
+              ]
+            },
+            "data_retention": {
+              "title": "4. Hoe lang worden ze bewaard?",
+              "content": "We streven ernaar om uw gegevens niet langer te bewaren dan nodig is. Omdat dit vereist is om de ticket verkoop legaal en soepel te laten verlopen, zullen wij uw gegevens opslaan totdat de Spik & Span ticketverkoop beëindigd is, en ook het betreffende evenement afgelopen is."
+            },
+            "data_sharing": {
+              "title": "5. Worden de gegevens gedeeld?",
+              "content": "Uw gegevens zullen worden gedeeld met alle betreffende partijen die betrekking hebben met het evenement, en de ticketverkoop. Voor meer informatie over deze partijen kunt u contact met ons opnemen via de contactgegevens aan het einde van deze privacyverklaring."
+            },
+            "user_rights": {
+              "title": "6. Welke rechten heeft u, als gebruiker?",
+              "content": [
+                "Wij stellen u graag in staat om gebruik te maken van uw wettelijke rechten die u heeft onder het privacyrecht. Dit betekent dat u altijd een verzoek kan indienen om inzage te krijgen in de gegevens die wij van u verwerken.",
+                "Daarnaast kunt u ook een verzoek indienen om gegevens te rectificeren, te beperken of geheel te wissen uit de systemen van de Spik & Span ticket verkoop. U heeft altijd het recht om onjuiste gegevens aan te vullen of te verbeteren. Als u ons verzoekt om uw gegevens te beperken of te wissen, zullen wij toetsen of dit mogelijk is. In deze toets houden wij ons aan de wettelijke vereisten en kijken wij bijvoorbeeld of wij geen wettelijke plicht hebben om de gegevens te bewaren. Daarnaast heeft u het recht om te vragen om de gegevens die wij over u verwerken aan u over te dragen of aan een andere organisatie.",
+                "Als u een van deze rechten wil uitvoeren, dan kunt u schriftelijk verzoek mailen naar de functionaris voor gegevensbescherming via info@spikspan.nl"
+              ]
+            },
+            "contact": {
+              "title": "7. Contactgegevens",
+              "content": "U kunt ons bereiken via de volgende opties:",
+              "details": {
+                "email": "E-mail: info@spikspan.nl",
+                "phone": "Telefoonnummer: 06-42069123",
+                "availability": "Wij zijn via het bovenstaande nummer bereikbaar op werkdagen van 09:00 tot 17:00.",
+                "whatsapp": "Ook kunt u ons via WhatsApp bereiken via hetzelfde nummer.",
+                "response_time": "Wij streven ernaar om uw bericht of telefoontje binnen veertien werkdagen te beantwoorden."
+              }
+            }
+          },
+          "footer": "© {year} Spik & Span. Alle rechten voorbehouden."
+        }
+      },
+      "en": {
+        "privacy": {
+          "title": "Privacy Policy - Spik & Span",
+          "menu": {
+            "home": "Home",
+            "language": "Language",
+            "languages": {
+              "nl": "Dutch",
+              "en": "English"
+            }
+          },
+          "sections": {
+            "introduction": {
+              "title": "1. Introduction",
+              "content": "At Spik & Span we take your privacy seriously. This policy explains what data we collect and how we use it."
+            },
+            "data_collected": {
+              "title": "2. What data is collected?",
+              "content": "On our Spik & Span ticket sales website, the following data is collected:",
+              "items": [
+                "First and last name",
+                "Date of birth",
+                "Address details",
+                "Phone number",
+                "Email address",
+                "Citizen service number (BSN)"
+              ]
+            },
+            "data_purpose": {
+              "title": "3. Why this data?",
+              "content": [
+                "To ensure your ticket is only usable by you, we are required to store this information in our systems. This is to prevent fraud and combat illegal copies.",
+                "We strive to provide you with a smooth ticket purchase process, and this data is required to make this process as seamless as possible."
+              ]
+            },
+            "data_retention": {
+              "title": "4. How long is it stored?",
+              "content": "We aim not to keep your data longer than necessary. Because this is required for the ticket sale to proceed legally and smoothly, we will store your data until the Spik & Span ticket sale has ended and the relevant event has concluded."
+            },
+            "data_sharing": {
+              "title": "5. Is the data shared?",
+              "content": "Your data will be shared with all relevant parties involved with the event and ticket sales. For more information about these parties, you can contact us using the contact details at the end of this privacy statement."
+            },
+            "user_rights": {
+              "title": "6. What rights do you have as a user?",
+              "content": [
+                "We are happy to enable you to exercise your legal rights under privacy law. This means you can always submit a request to view the data we process about you.",
+                "Additionally, you can submit a request to rectify, restrict or completely delete your data from the Spik & Span ticket sales systems. You always have the right to supplement or correct inaccurate data. If you ask us to restrict or delete your data, we will assess whether this is possible. In this assessment, we comply with legal requirements and check, for example, whether we have no legal obligation to retain the data. You also have the right to request that we transfer the data we process about you to you or to another organization.",
+                "If you wish to exercise any of these rights, you can email your written request to the data protection officer at info@spikspan.nl"
+              ]
+            },
+            "contact": {
+              "title": "7. Contact details",
+              "content": "You can reach us via the following options:",
+              "details": {
+                "email": "Email: info@spikspan.nl",
+                "phone": "Phone number: +31 6 42069123",
+                "availability": "We are available at the above number on workdays from 09:00 to 17:00.",
+                "whatsapp": "You can also reach us via WhatsApp on the same number.",
+                "response_time": "We aim to respond to your message or call within fourteen working days."
+              }
+            }
+          },
+          "footer": "© {year} Spik & Span. All rights reserved."
+        }
+      }
+    }
+  }
